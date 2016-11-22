@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Pic Select</string>
+    <string name="select">Reverse Selection</string>
 </resources>
