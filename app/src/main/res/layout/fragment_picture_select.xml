@@ -4,13 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="ca.alexcochrane.picselect.PictureSelectFragment">
-    <ImageButton
-        android:id="@+id/backButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="?android:buttonBarButtonStyle"
-        android:src="@drawable/ic_arrow_back_black_24dp"
-        android:visibility="gone"/>
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
