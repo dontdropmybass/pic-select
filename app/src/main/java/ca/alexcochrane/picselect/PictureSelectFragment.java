@@ -1,7 +1,6 @@
 package ca.alexcochrane.picselect;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,9 +19,7 @@ import android.widget.ListView;
  */
 public class PictureSelectFragment extends Fragment {
 
-    private static final String PREF_NAME = "PIC_PREFERENCES";
-    private static final String PIC_SELECTED = "PIC_SELECTED";
-
+    @SuppressWarnings("unused")
     private OnFragmentInteractionListener mListener;
 
     public PictureSelectFragment() {
@@ -83,7 +80,7 @@ public class PictureSelectFragment extends Fragment {
      * >Communicating with Other Fragments</a> for more information.
      */
     public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
+        @SuppressWarnings("unused")
         void onFragmentInteraction(Uri uri);
     }
 
@@ -100,6 +97,6 @@ public class PictureSelectFragment extends Fragment {
                 getResources().getDrawable(R.drawable.photo4,null),
                 getResources().getDrawable(R.drawable.photo5,null),
                 getResources().getDrawable(R.drawable.photo6,null)
-        };
+        }; // FIXME: horrible hack
     }
 }

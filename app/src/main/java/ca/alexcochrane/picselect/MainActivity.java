@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity implements PictureSelectFragment.OnFragmentInteractionListener {
 
+    // creates the main activity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,8 +18,9 @@ public class MainActivity extends AppCompatActivity implements PictureSelectFrag
 
     }
 
+    // go back to the listview when back is pressed
     @Override
     public void onBackPressed() {
-        recreate();
+        recreate(); // FIXME: horrible hack
     }
 }
