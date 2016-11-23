@@ -8,6 +8,8 @@ import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -19,6 +21,9 @@ class PictureListAdapter extends ArrayAdapter<Drawable> {
 
     private Drawable[] objects;
     private boolean[] selected;
+
+    Animation fadeIn;
+    Animation fadeOut;
 
     /**
      * Constructor
@@ -40,6 +45,9 @@ class PictureListAdapter extends ArrayAdapter<Drawable> {
         for (int i = 0; i < ps.length(); i++) {
             selected[i] = ps.toCharArray()[i]=='1';
         }
+
+        fadeIn  = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in);
+        fadeOut = AnimationUtils.loadAnimation(getContext(), R.anim.fade_out);
     }
 
     @NonNull
@@ -65,12 +73,17 @@ class PictureListAdapter extends ArrayAdapter<Drawable> {
                 ImageView bigImage = (ImageView) parent.findViewById(R.id.bigImage);
                 ListView listView = (ListView) parent.findViewById(R.id.listView);
 
+                bigImage.setAnimation(fadeOut);
+                bigImage.animate();
                 bigImage.setImageDrawable(objects[position]);
 
                 if (bigImage.getVisibility() == View.GONE) {
                     bigImage.setVisibility(View.VISIBLE);
                     listView.setVisibility(View.GONE);
                 }
+
+                bigImage.setAnimation(fadeIn);
+                bigImage.animate();
             }
         });
 
